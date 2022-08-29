@@ -16,10 +16,11 @@ export const Category = (props) => {
             <hr className="category-container__separator"/>
             
             {
-                Object.keys(todos).map((key) => {
-                    const todo_props = { color: props.color, category_id: props.id, todo_id: key,...todos[key] }
-                    return <Todo key={ key } { ...todo_props } />
-                })
+                (todos) &&
+                    Object.keys(todos).map((key) => {
+                        const todo_props = { color: props.color, category_id: props.id, todo_id: key,...todos[key] }
+                        return <Todo key={ key } { ...todo_props } />
+                    })
             }
         </div>
     )

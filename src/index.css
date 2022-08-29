@@ -5,6 +5,26 @@
     padding: 0;
 }
 
+.add-category-button {
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid rgb(75, 75, 75);
+    color: rgb(75, 75, 75);
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px auto;
+    padding: 10px;
+    transition: all .4s;
+    width: 95%;
+}
+
+.add-category-button:hover {
+    cursor: pointer;
+    background-color: rgb(75, 75, 75);
+    color: #fff;
+}
+
 .category-container {
     margin: 50px;
 }
@@ -38,6 +58,7 @@
     justify-content: center;
     transition: opacity .3s;
     width: 26px;
+    margin-left: 5px;
 }
 
 .todo-container__complete:hover {
