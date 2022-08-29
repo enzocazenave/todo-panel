@@ -26,7 +26,7 @@
 }
 
 .category-container {
-    margin: 50px;
+    margin: 35px;
 }
 
 .category-container__separator {
@@ -68,6 +68,12 @@
 
 .todo-container__complete i {
     text-decoration: none;
+}
+
+.category-action {
+    padding: 5px;
+    margin-right: 10px;
+    cursor: pointer;
 }
 
 /* COMPLETED TODO CLASS */

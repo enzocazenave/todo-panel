@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { getColorClass } from "../helpers/getColorClass";
-import { startCompleteTodo } from "../store/thunks";
+import { startCompleteTodo, startDeleteTodo } from "../store/thunks";
 import { useDispatch } from "react-redux";
 
 export const Todo = (props) => {
@@ -15,7 +15,7 @@ export const Todo = (props) => {
     }
 
     return (
-        <div className={`${ (completed) && 'todo-completed' } ${getColorClass(props.color, 'background')} todo-container`}>
+        <div onClick={ () => dispatch(startDeleteTodo(props.category_id, props.todo_id)) } className={`${ (completed) && 'todo-completed' } ${getColorClass(props.color, 'background')} todo-container`}>
             <p className={`todo-container__todo ${ (completed) && 'text-completed' }` }>{ props.text }</p>
             <div onClick={ () => completeTodo(props.category_id, props.todo_id) } className="todo-container__complete">
                 {

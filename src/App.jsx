@@ -40,10 +40,16 @@ export const App = () => {
 
 
             {
+                (categories.length > 0) 
+                ?   
                 categories.map(props => {
                     const properties = { id: props.key, ...props }
                     return <Category key={ props.key } { ...properties }/>
                 })
+                : <h1 style={{
+                    textAlign: 'center',
+                    marginTop: '30px'
+                }}>No todos saved</h1>
             }
         </>
     )
