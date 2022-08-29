@@ -32,5 +32,6 @@ export const startCreateCategory = (name, color) => {
 
         const reference = ref(FirebaseDB, `categories/${unique_id}`);
         await set(reference, data);
+        dispatch(startLogin());
     }
 }
