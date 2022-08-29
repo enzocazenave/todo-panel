@@ -24,7 +24,6 @@ export const Category = (props) => {
           
         if (task) {
             dispatch(startCreateTodo(task, props.id));
-            Swal.fire(`Todo created!`)
         }
     }
 

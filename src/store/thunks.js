@@ -39,10 +39,27 @@ export const startCreateCategory = (name, color) => {
 
 export const startDeleteCategory = (category_id) => {
     return async(dispatch) => {
-        const reference = ref(FirebaseDB, `categories/${category_id}`);
-        remove(reference);
-        dispatch(startLogin());
-        Swal.fire(`Category ${category_id} removed!`)
+        
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                const reference = ref(FirebaseDB, `categories/${category_id}`);
+                remove(reference);
+                dispatch(startLogin());
+                      Swal.fire(
+                        'Deleted!',
+                        'Your category has been deleted.',
+                        'success'
+                      )
+                    }
+            })
     }
 }
 
