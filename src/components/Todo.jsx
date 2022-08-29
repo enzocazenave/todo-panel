@@ -15,13 +15,21 @@ export const Todo = (props) => {
     }
 
     return (
-        <div onClick={ () => dispatch(startDeleteTodo(props.category_id, props.todo_id)) } className={`${ (completed) && 'todo-completed' } ${getColorClass(props.color, 'background')} todo-container`}>
+        <div className={`${ (completed) && 'todo-completed' } ${getColorClass(props.color, 'background')} todo-container`}>
             <p className={`todo-container__todo ${ (completed) && 'text-completed' }` }>{ props.text }</p>
-            <div onClick={ () => completeTodo(props.category_id, props.todo_id) } className="todo-container__complete">
-                {
-                    (completed) && <i className="fas fa-check"></i>    
-                }
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <i style={{
+                    marginRight: '20px',
+                    color: '#000',
+                    cursor: 'pointer',
+                }} onClick={ () => dispatch(startDeleteTodo(props.category_id, props.todo_id)) } className="fas fa-trash"></i>
+                <div onClick={ () => completeTodo(props.category_id, props.todo_id) } className="todo-container__complete">
+                    {
+                        (completed) && <i className="fas fa-check"></i>    
+                    }
+                </div>
             </div>
+            
         </div>
     )
 }
